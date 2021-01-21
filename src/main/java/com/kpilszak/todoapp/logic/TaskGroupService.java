@@ -6,11 +6,13 @@ import com.kpilszak.todoapp.model.TaskRepository;
 import com.kpilszak.todoapp.model.projection.GroupReadModel;
 import com.kpilszak.todoapp.model.projection.GroupWriteModel;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequestScope
 public class TaskGroupService {
     private TaskGroupRepository repository;
     private TaskRepository taskRepository;
