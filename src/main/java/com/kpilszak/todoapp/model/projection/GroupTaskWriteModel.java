@@ -1,10 +1,11 @@
 package com.kpilszak.todoapp.model.projection;
 
 import com.kpilszak.todoapp.model.Task;
+import com.kpilszak.todoapp.model.TaskGroup;
 
 import java.time.LocalDateTime;
 
-class GroupTaskWriteModel {
+public class GroupTaskWriteModel {
 	private String description;
 	private LocalDateTime deadline;
 	
@@ -24,7 +25,7 @@ class GroupTaskWriteModel {
 		this.deadline = deadline;
 	}
 	
-	public Task toTask() {
-		return new Task(description, deadline);
+	public Task toTask(final TaskGroup group) {
+		return new Task(description, deadline, group);
 	}
 }
