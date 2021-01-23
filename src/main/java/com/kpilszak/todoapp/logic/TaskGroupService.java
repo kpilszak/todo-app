@@ -1,5 +1,6 @@
 package com.kpilszak.todoapp.logic;
 
+import com.kpilszak.todoapp.model.Project;
 import com.kpilszak.todoapp.model.TaskGroup;
 import com.kpilszak.todoapp.model.TaskGroupRepository;
 import com.kpilszak.todoapp.model.TaskRepository;
@@ -24,7 +25,11 @@ public class TaskGroupService {
     }
     
     public GroupReadModel createGroup(final GroupWriteModel source) {
-        TaskGroup result = repository.save(source.toGroup());
+        return createGroup(source, null);
+    }
+    
+    GroupReadModel createGroup(final GroupWriteModel source, final Project project) {
+        TaskGroup result = repository.save(source.toGroup(project));
         return new GroupReadModel(result);
     }
     
@@ -42,4 +47,6 @@ public class TaskGroupService {
         result.setDone(!result.isDone());
         repository.save(result);
     }
+    
+
 }

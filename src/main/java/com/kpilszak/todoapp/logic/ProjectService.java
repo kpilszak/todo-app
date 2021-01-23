@@ -7,11 +7,14 @@ import com.kpilszak.todoapp.model.TaskGroupRepository;
 import com.kpilszak.todoapp.model.projection.GroupReadModel;
 import com.kpilszak.todoapp.model.projection.GroupTaskWriteModel;
 import com.kpilszak.todoapp.model.projection.GroupWriteModel;
+import com.kpilszak.todoapp.model.projection.ProjectWriteModel;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ProjectService {
 	private ProjectRepository repository;
 	private TaskGroupRepository taskGroupRepository;
@@ -32,8 +35,8 @@ public class ProjectService {
 		return repository.findAll();
 	}
 	
-	public Project save(final Project toSave) {
-		return repository.save(toSave);
+	public Project save(final ProjectWriteModel toSave) {
+		return repository.save(toSave.toProject());
 	}
 	
 	public GroupReadModel createGroup(LocalDateTime deadline, int projectId) {
@@ -49,7 +52,7 @@ public class ProjectService {
 				task.setDeadline(deadline.plusDays(projectStep.getDaysToDeadline()));
 				return task;
 			}).collect(Collectors.toSet()));
-			return taskGroupService.createGroup(targetGroup);
+			return taskGroupService.createGroup(targetGroup, project);
 		}).orElseThrow(() -> new IllegalArgumentException("Project with given id not found"));
 	}
 }

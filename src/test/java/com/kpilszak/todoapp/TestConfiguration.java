@@ -63,6 +63,11 @@ class TestConfiguration {
 			}
 			
 			@Override
+			public List<Task> findAllByGroup_Id(final Integer groupId) {
+				return List.of();
+			}
+			
+			@Override
 			public Task save(final Task entity) {
 				int key = tasks.size() + 1;
 				Field field = null;
