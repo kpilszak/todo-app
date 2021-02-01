@@ -18,14 +18,8 @@ Project is created with:
 * Thymeleaf  
 * Maven  
 * H2  
-* Flyway
+* Flyway  
 IDE: Intellij IDEA 2020
-
-## Setup
-To run this project, you need to have `jdk` and `jre` installed.
-Download the `src` folder and open it in a `command prompt` or `terminal`.  
-Type `javac Application.java` and press enter to compile.  
-Type `java Application` to run the application.  
 
 ## Sources
 This project was created as an exercise from course "Java - Spring Framework" by Mateusz Chrzonstowski.
