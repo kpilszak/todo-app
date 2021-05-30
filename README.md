@@ -8,7 +8,7 @@
 
 ## General info
 This project is a web application.  
-The main purpose is to have a todo list in web application.     
+The main purpose is to have a todo list web application.     
 
 ## Technologies
 Project is created with:
